@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Page Title -->
+    <title>WMATA Live Board</title>
+
+    <!-- Refresh Page Every 20 Seconds for Live Updates -->
+    <meta http-equiv="refresh" content="20">
+
+    <!-- Google Fonts: Quantico (Regular 400 and Bold 700) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Attach custom CSS stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <!-- Train Station Header -->
+    <div class="header">{{ station_name }} Departures</div>
+
+    <!-- Train Data Column Headers -->
+    <div class="col-header">
+        <span class="col-ln">LN</span>
+        <span class="col-car">CAR</span>
+        <span class="col-dest">DEST</span>
+        <span class="col-min">MIN</span>
+    </div>
+    
+    <!-- Error Message -->
+    {% if error %}
+        <div class="error-msg">{{ error }}</div>
+
+    <!-- Train Data Rows -->
+    {% elif trains %}
+
+        <!-- Loop Through Each Arriving Train -->
+        {% for train in trains %}
+        <div class="train-row">
+            <span class="line-badge {{ train.Line }}">{{ train.Line }}</span>
+            <span class="cars">{{ train.Car }}</span>
+            <span class="destination">{{ train.DestinationName }}</span>
+            <span class="minutes">
+
+                <!-- Unique Values for Arrivaling and Boarding Trains -->
+                {% if train.Min in ['ARR', 'BRD'] %}
+                    {{ train.Min }}
+
+                <!-- Regular Minutes -->
+                {% else %}
+                    {{ train.Min }}
+                {% endif %}
+            </span>
+        </div>
+        {% endfor %}
+
+    <!-- No Trains Message -->
+    {% else %}
+        <div class="no-trains">No active trains or schedule gaps reported.</div>
+    {% endif %}
+</body>
+</html>

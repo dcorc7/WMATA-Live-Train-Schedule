@@ -1,0 +1,61 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Quantico', 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+}
+.header {
+    font-size: 32px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.col-header {
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+    border-bottom: 3px solid #f8c301;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+.col-ln   { width: 45px; margin-right: 20px; text-align: center; }
+.col-dest { flex-grow: 1; }
+.col-car  { width: 90px; margin-right: 30px; text-align: right; }
+.col-min  { min-width: 100px; text-align: right; }
+
+.train-row {
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+.line-badge {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    font-size: 20px;
+    color: white;
+}
+.destination { flex-grow: 1; text-transform: uppercase; }
+.cars { color: #888; width: 90px; margin-right: 30px; text-align: center; }
+.minutes { color: #ff9900; min-width: 100px; text-align: right; }
+.error-msg { color: #ff3333; font-size: 24px; font-weight: bold; }
+.no-trains { color: #666; font-size: 24px; }
+
+/* WMATA Colors */
+.RD { background-color: #E31937; }
+.OR { background-color: #E97100; }
+.BL { background-color: #0076C0; }
+.GR { background-color: #00A65C; }
+.YL { background-color: #F1D302; color: black; }
+.SV { background-color: #A1A2A3; }
